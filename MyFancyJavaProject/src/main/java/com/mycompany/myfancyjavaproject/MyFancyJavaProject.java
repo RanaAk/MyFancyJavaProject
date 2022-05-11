@@ -1,70 +1,71 @@
-package com.mycompany.myfancyjavaproject;
+package creational.pattern;
 
-
-import java.util.*;
-
-
-/**
- *
- * @author RANA
- */
-
-public class MyFancyJavaProject {
-
-    public static void main(String[] args) {
-
-    char operator;
-    Double number1, number2, result;
-
-    
-    Scanner input = new Scanner(System.in);
-
-    
-    System.out.println("Choose an operator: +, -, *, or /");
-    operator = input.next().charAt(0);
-
-   
-    System.out.println("Enter first number");
-    number1 = input.nextDouble();
-
-    System.out.println("Enter second number");
-    number2 = input.nextDouble();
-
-    switch (operator) {
-
-      
-      case '+':
-        result = number1 + number2;
-        System.out.println(number1 + " + " + number2 + " = " + result);
-        break;
-
-     
-      case '-':
-        result = number1 - number2;
-        System.out.println(number1 + " - " + number2 + " = " + result);
-        break;
-
-     
-      case '*':
-        result = number1 * number2;
-        System.out.println(number1 + " * " + number2 + " = " + result);
-        break;
-
-    
-      case '/':
-        result = number1 / number2;
-        System.out.println(number1 + " / " + number2 + " = " + result);
-        break;
-
-      default:
-        System.out.println("Invalid operator!");
-        break;
-    }
-
-    input.close();
-  }
-
-
+interface Shape
+{
+    void draw();
 }
 
 
+class Circle implements Shape
+{
+    @Override
+    public void draw()
+    {
+        System.out.println("a circle drawn");
+    }
+}
+
+
+class Square implements Shape
+{
+    @Override
+    public void draw()
+    {
+        System.out.println("a square drawn");
+    }
+}
+
+class Rectangle implements Shape
+{
+    @Override
+    public void draw()
+    {
+        System.out.println("a rectangle drawn");
+    }
+}
+
+
+class ShapeFactory
+{
+
+    public Shape getShape(String type) throws Exception
+    {
+        switch (type)
+        {
+            case "Circle":
+                return new Circle();
+            case "Square":
+                return new Square();
+            case "Rectangle":
+                return new Rectangle();
+            default:
+                throw new Exception( "Shape type : "+type+" cannot be instantiated");
+        }
+    }
+}
+
+class Painter
+{
+    public static void main(String[] args) throws Exception
+    {
+
+        ShapeFactory shapeFactory = new ShapeFactory();
+        Shape circle=shapeFactory.getShape("Circle");
+        circle.draw();
+        Shape square = shapeFactory.getShape("Square");
+        square.draw();
+
+        Shape rombus = shapeFactory.getShape("Rombus");
+        rombus.draw();
+    }
+}
