@@ -14,7 +14,7 @@ public class MyFancyJavaProject {
     public static void main(String[] args) {
 
     char operator;
-    Double number1, number2, result;
+    Double n1, n2, Result;
 
     
     Scanner input = new Scanner(System.in);
@@ -25,35 +25,35 @@ public class MyFancyJavaProject {
 
    
     System.out.println("Enter first number");
-    number1 = input.nextDouble();
+    n1 = input.nextDouble();
 
     System.out.println("Enter second number");
-    number2 = input.nextDouble();
+    n2 = input.nextDouble();
 
     switch (operator) {
 
       
       case '+':
-        result = number1 + number2;
-        System.out.println(number1 + " + " + number2 + " = " + result);
+        Result = n1 + n2;
+        System.out.println(n1 + " + " + n2 + " = " + Result);
         break;
 
      
       case '-':
-        result = number1 - number2;
-        System.out.println(number1 + " - " + number2 + " = " + result);
+        Result = n1 - n2;
+        System.out.println(n1 + " - " + n2 + " = " + Result);
         break;
 
      
       case '*':
-        result = number1 * number2;
-        System.out.println(number1 + " * " + number2 + " = " + result);
+        Result = n1 * n2;
+        System.out.println(n1 + " * " + n2 + " = " + Result);
         break;
 
     
       case '/':
-        result = number1 / number2;
-        System.out.println(number1 + " / " + number2 + " = " + result);
+        Result = n1 / n2;
+        System.out.println(n1 + " / " + n2 + " = " + Result);
         break;
 
       default:
